@@ -1,4 +1,4 @@
-package primecommerce.utilities;
+package doruk.utilities;
 
 import java.io.FileInputStream;
 import java.util.Properties;
