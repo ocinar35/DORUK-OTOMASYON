@@ -1,5 +1,6 @@
 package doruk.utilities;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -7,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BrowserUtils {
 
     /**
-     * This method enables us to wait until given Webelemenr is visibile.
+     * This method enables us to wait until given Webelement is visibile.
      * @param element
      */
     public void waitForVisibility(WebElement element){
@@ -22,12 +23,22 @@ public class BrowserUtils {
         Driver.getDriver().navigate().refresh();
     }
 
+    /**
+     * This method provides us to sleep the code during the given time.
+     * @param seconds
+     */
     public void sleep(int seconds){
         try {
-            Thread.sleep(seconds*1000);
+            Thread.sleep(seconds*500);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+
+    public WebElement waitForClickablility(WebElement element, int timeout) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
+        return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
 }

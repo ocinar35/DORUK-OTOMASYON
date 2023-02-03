@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 
 public class HomePage{
+    BrowserUtils browserUtils = new BrowserUtils();
 
     public HomePage(){
         PageFactory.initElements(Driver.getDriver(),this);
@@ -57,6 +58,7 @@ public class HomePage{
      */
     public void setListRandomly(){
         int random = (int)(Math.random()*orderReferenceNo.size());
+        browserUtils.waitForClickablility(waitUntilFilter,3);
         orderReferenceNo.get(random).click();
     }
 
@@ -65,9 +67,12 @@ public class HomePage{
      * Used refresh() method for enable the JOB panel
      */
     public void finishTheJob(){
-        new BrowserUtils().refreshPage();
+        browserUtils.refreshPage();
+        browserUtils.waitForClickablility(job,3);
         job.click();
+        browserUtils.waitForClickablility(finishButton,3);
         finishButton.click();
+        browserUtils.waitForClickablility(confirmFinish,3);
         confirmFinish.click();
     }
 

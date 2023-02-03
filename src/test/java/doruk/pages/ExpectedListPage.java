@@ -4,7 +4,6 @@ import doruk.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +33,10 @@ public class ExpectedListPage{
 
     @FindBy(xpath = "//a[@style=\"background: url(assets/media/epcMain/aktif-is-bilgisi.svg) no-repeat center center; background-size: contain;\"]")
     public WebElement activeJobInfo;
+
+    /**
+     * This method provides us to add expected informations to the List of String.
+     */
 
     public List<String> exp = new ArrayList<>();
     public void addTheExpectedInfoToExpectedList(){
