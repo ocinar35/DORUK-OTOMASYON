@@ -76,6 +76,4 @@ public class HomePage{
         confirmFinish.click();
     }
 
-
-
 }
